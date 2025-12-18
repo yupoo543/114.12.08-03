@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>購物車 - 蒔甜</title>
+    <link rel="stylesheet" href="蒔甜.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+
+   <header class="main-header">
+        <div class="logo"><a href="index.html">LOGO</a></div>
+        <nav class="top-nav">
+            <a href="products.html">商品分類 <i class="fas fa-caret-down"></i></a>
+            <a href="about.html">關於我們</a>
+            <a href="qa.html">常見問題</a>
+            <a href="cart.html">購物車</a>
+            <a href="login.html">會員登入</a>
+        </nav>
+    </header>
+
+    <main class="cart-container">
+        <h1 class="page-title">您的購物車</h1>
+
+        <div class="cart-wrapper">
+            <div class="cart-items">
+                <div class="cart-item">
+                    <div class="item-img">
+                        <div class="placeholder-cross"></div>
+                    </div>
+                    <div class="item-info">
+                        <h3>四季彩蔬塔禮盒</h3>
+                        <p>NT$ 880</p>
+                    </div>
+                    <div class="item-qty">
+                        <button class="qty-btn minus">-</button>
+                        <input type="number" value="1" min="1">
+                        <button class="qty-btn plus">+</button>
+                    </div>
+                    <div class="item-total">NT$ 880</div>
+                    <button class="remove-btn"><i class="far fa-trash-alt"></i></button>
+                </div>
+
+                <div class="cart-item">
+                    <div class="item-img">
+                        <div class="placeholder-cross"></div>
+                    </div>
+                    <div class="item-info">
+                        <h3>地瓜巴斯克</h3>
+                        <p>NT$ 160</p>
+                    </div>
+                    <div class="item-qty">
+                        <button class="qty-btn minus">-</button>
+                        <input type="number" value="2" min="1">
+                        <button class="qty-btn plus">+</button>
+                    </div>
+                    <div class="item-total">NT$ 320</div>
+                    <button class="remove-btn"><i class="far fa-trash-alt"></i></button>
+                </div>
+            </div>
+
+            <div class="cart-summary">
+                <h2>訂單摘要</h2>
+                <div class="summary-line">
+                    <span>商品總計</span>
+                    <span>NT$ 1,200</span>
+                </div>
+                <div class="summary-line">
+                    <span>運費</span>
+                    <span>NT$ 150</span>
+                </div>
+                <hr>
+                <div class="summary-line total">
+                    <span>應付總額</span>
+                    <span>NT$ 1,350</span>
+                </div>
+                <button class="checkout-btn">前往結帳</button>
+                <a href="products.html" class="continue-shopping">繼續選購</a>
+            </div>
+        </div>
+    </main>
+
+    <script src="蒔甜.js"></script>
+</body>
+
+</html>

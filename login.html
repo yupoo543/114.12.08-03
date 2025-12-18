@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>會員登入 - 蒔甜</title>
+    <link rel="stylesheet" href="蒔甜.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo"><a href="index.html">LOGO</a></div>
+        <nav class="top-nav">
+            <a href="products.html">商品分類 <i class="fas fa-caret-down"></i></a>
+            <a href="about.html">關於我們</a>
+            <a href="qa.html">常見問題</a>
+            <a href="cart.html">購物車</a>
+            <a href="login.html">會員登入</a>
+        </nav>
+    </header>
+
+    <main class="login-container">
+        <div class="login-card">
+            <h2 class="form-title">歡迎回到 蒔甜</h2>
+            <p class="form-subtitle">登入以享受專屬優惠與追蹤訂單</p>
+            
+            <form action="#" class="login-form">
+                <div class="form-group">
+                    <label for="email">電子信箱</label>
+                    <input type="email" id="email" placeholder="example@email.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">密碼</label>
+                    <div class="password-wrapper">
+                        <input type="password" id="password" placeholder="請輸入密碼" required>
+                        <i class="far fa-eye" id="togglePassword"></i>
+                    </div>
+                </div>
+
+                <div class="form-options">
+                    <label>
+                        <input type="checkbox"> 記住我
+                    </label>
+                    <a href="#" class="forgot-link">忘記密碼？</a>
+                </div>
+
+                <button type="submit" class="submit-btn">立即登入</button>
+            </form>
+
+            <div class="divider">
+                <span>或是</span>
+            </div>
+
+            <div class="social-login">
+                <button class="social-btn google"><i class="fab fa-google"></i> Google 登入</button>
+                <button class="social-btn line"><i class="fab fa-line"></i> LINE 登入</button>
+            </div>
+
+            <p class="register-hint">還不是會員？ <a href="#">立即註冊</a></p>
+        </div>
+    </main>
+
+    <script src="蒔甜.js"></script>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首頁</title>
+    <link rel="stylesheet" href="蒔甜.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+
+    <header class="main-header">
+        <div class="logo"><a href="index.html">LOGO</a></div>
+        <nav class="top-nav">
+            <a href="products.html">商品分類 <i class="fas fa-caret-down"></i></a>
+            <a href="about.html">關於我們</a>
+            <a href="qa.html">常見問題</a>
+            <a href="cart.html">購物車</a>
+            <a href="login.html">會員登入</a>
+        </nav>
+    </header>
+
+    <main class="homepage">
+
+        <section class="slideshow-container">
+            <div class="mySlides fade">
+                <img src="img/index1.png" style="width:100%; height:500px; object-fit:cover;">
+            </div>
+
+            <div class="mySlides fade">
+                <img src="img/index2.png" style="width:100%; height:500px; object-fit:cover;">
+            </div>
+
+            <div class="mySlides fade">
+                <img src="img/index3.png" style="width:100%; height:500px; object-fit:cover;">
+            </div>
+
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+            <div class="dot-container">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+            </div>
+        </section>
+
+        <section class="info-section">
+            <h2 class="section-title">最新公告</h2>
+            <div class="card-grid">
+                <div class="info-card">
+                    <img src="img/index1.png" alt="公告1" class="card-img">
+                    <div class="overlay">
+                        <div class="overlay-text">
+                            <h3>季節限定新品</h3>
+                            <p>查看更多細節</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <img src="img/index.new2.jpg" alt="公告2" class="card-img">
+                    <div class="overlay">
+                        <div class="overlay-text">
+                            <h3>門市公休公告</h3>
+                            <p>12/25 全日公休</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <img src="img/index.new3.jpg" alt="公告3" class="card-img">
+                    <div class="overlay">
+                        <div class="overlay-text">
+                            <h3>冬季暖心活動</h3>
+                            <p>消費滿千送好禮</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <img src="img/index.new4.jpg" alt="公告4" class="card-img">
+                    <div class="overlay">
+                        <div class="overlay-text">
+                            <h3>蒔甜新址開幕</h3>
+                            <p>邀請您前來品嚐</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a href="#" class="more-link">more...</a>
+        </section>
+
+        <section class="info-section">
+            <h2 class="section-title">活動消息</h2>
+            <div class="card-grid">
+                <div class="info-card">
+                    <img src="img/index.2-1.jpg" alt="公告1" class="card-img">
+                    <div class="overlay">
+                        <div class="overlay-text">
+                            <h3>【蒔甜x靜心瑜珈】</h3>
+                            <p>找回身體的純粹平衡</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <img src="img/index.2-2.jpg" alt="公告2" class="card-img">
+                    <div class="overlay">
+                        <div class="overlay-text">
+                            <h3>【社群徵件】</h3>
+                            <h3>尋找#零罪惡甜點 攝影師</h3>
+                            <p>分享您的午茶時光</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <img src="img/index.2-3.jpg" alt="公告3" class="card-img">
+                    <div class="overlay">
+                        <div class="overlay-text">
+                            <h3>【手作工作坊】</h3>
+                            <h3>「蒔」刻體驗</h3>
+                            <p>創意蔬食塔組裝教學</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <img src="img/index.2-4.jpg" alt="公告4" class="card-img">
+                    <div class="overlay">
+                        <div class="overlay-text">
+                            <h3>【門市快閃】</h3>
+                            <p>「週末有機市集」聯名試吃會</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a href="#" class="more-link">more...</a>
+        </section>
+
+        <section class="info-section">
+            <h2 class="section-title">推薦甜點</h2>
+            <div class="card-grid">
+                <div class="info-card">
+                    <img src="img/1.png" alt="公告1" class="card-img">
+                    <div class="overlay">
+                        <div class="overlay-text">
+                            <h3>【豐收 四季彩蔬塔禮盒】</h3>
+                            <p>將大地四季的蔬果精華一次收納</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <img src="img/2.png" alt="公告2" class="card-img">
+                    <div class="overlay">
+                        <div class="overlay-text">
+                            <h3>【森息 菠菜抹茶戚風】</h3>
+                            <p>接受大自然的清香</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <img src="img/3.png" alt="公告3" class="card-img">
+                    <div class="overlay">
+                        <div class="overlay-text">
+                            <h3>【紅寶 甜菜根醇黑可塔】</h3>
+                            <p>紅寶石與黑巧克力的相遇</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <img src="img/4.png" alt="公告4" class="card-img">
+                    <div class="overlay">
+                        <div class="overlay-text">
+                            <h3>【初心 豆乳芋泥捲】</h3>
+                            <p>回歸最單純的食材樸實的原味</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a href="#" class="more-link">more...</a>
+        </section>
+
+
+    </main>
+
+    <div class="floating-btn left-btn"><i class="fas fa-reply"></i></div>
+    <div class="floating-btn right-btn"><i class="fas fa-chevron-up"></i></div>
+
+    <script src="蒔甜.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,854 @@
+
+/* products商品頁面 */
+/* --- 1. 頁面寬度容器 (與首頁導覽列對齊) --- */
+.product-page-wrapper {
+    max-width: 1300px;
+    margin: 5px auto;
+    padding: 0 20px;
+}
+
+
+/* 基本重置 */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Microsoft JhengHei", sans-serif; /* 微軟正黑體 */
+}
+
+/* 變數設定 (方便改色) */
+:root {
+    --primary-color: #5A4A42; /* 深褐色文字 */
+    --accent-color: #E8DCCF;  /* 米色背景 */
+    --white: #ffffff;
+    --border-color: #ccc;
+}
+
+body {
+    color: var(--primary-color);
+}
+
+/* 頂部導覽列 */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: var(--white);
+}
+
+/* 設定 LOGO 外框與文字樣式 */
+.logo a {
+    display: inline-block;        /* 讓 a 標籤可以設定寬高 */
+    text-decoration: none;        /* 移除超連結底線 */
+    color: #834d4d;               /* 文字顏色 */
+    /* border: 1px solid #000000;    實線外框 (對應線稿) */
+    padding: 10px 30px;           /* 上下 10px，左右 30px */
+    font-weight: bold;            /* 文字加粗 */
+    letter-spacing: 2px;          /* 字距稍微拉開，更有設計感 */
+    transition: all 0.3s ease;    /* 滑鼠移上去時的平滑過渡 */
+}
+
+/* 滑鼠移至 LOGO 時的效果 (可選) */
+.logo a:hover {
+    background-color: #d4c8c8;    /* 稍微變色，讓使用者知道可以點擊 */
+    /* border-color: #9c6b6b;        邊框變成品牌咖啡色 */
+}
+
+
+/* 預設的導覽連結樣式 */
+.top-nav a {
+    text-decoration: none;
+    color: var(--primary-color); /* 原本的深咖啡色文字 */
+    padding: 8px 15px;
+    transition: all 0.3s ease; /* 增加顏色切換的平滑感 */
+    border-radius: 3px; /* 稍微圓角比較美觀 */
+}
+
+/* 當下頁面的樣式 (Active 狀態) */
+.top-nav a.active {
+    background-color: var(--primary-color); /* 變換底色為深咖啡色 */
+    color: #ffffff !important;               /* 字體變為白色 */
+}
+
+/* 滑鼠移上去的輔助效果 (選填) */
+.top-nav a:hover {
+    background-color: #f0f0f0; 
+}
+
+/* 次級導覽列 (Tabs) */
+.sub-nav {
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 20px;
+}
+
+.sub-nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.sub-nav li {
+    padding: 15px 30px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.sub-nav li:hover {
+    color: #888888a8;
+}
+
+/* 選中狀態 */
+.sub-nav li.active {
+    background-color: #D6C2B3; /* 較深的米色 */
+    color: var(--primary-color);
+}
+
+/* 主要內容區 */
+.content-section {
+    display: none; /* 預設隱藏 */
+}
+
+.content-section.active {
+    display: block; /* 有 active 才顯示 */
+}
+
+.hero-image {
+    width: 100%;
+    height: 1000px; /* 大圖高度 */
+    /* background-color: #fff; */
+    /* border: 1px solid #ddd; */
+    position: relative;
+    margin-bottom: 0%;
+}
+
+/* 底部資訊列 (米色區塊) */
+.bottom-info {
+    background-color: #F5Ece4; /* 淺米色 */
+    padding: 50px 0;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+.diamond-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+}
+
+/* 菱形圖示 */
+.diamond {
+    width: 12px;
+    height: 12px;
+    background-color: #D6C2B3; /* 菱形顏色 */
+    transform: rotate(45deg);
+}
+
+/* 浮動按鈕 */
+.floating-btn {
+    position: fixed;
+    bottom: 30px;
+    width: 40px;
+    height: 40px;
+    /* border: 1px solid #ccc; */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(235, 231, 231);
+    cursor: pointer;
+    color: #fff;
+}
+.floating-btn:hover {
+    color: #ffffff;
+    background: #d8b7c1;
+}
+
+.left-btn { left: 30px; }
+.right-btn { right: 30px; }
+
+
+/* === 關於我們頁面樣式 (about.html) === */
+
+.about-page {
+    padding: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-hero {
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+.page-title {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.logo-box {
+    border: 1px solid var(--primary-color);
+    width: 200px;
+    padding: 20px;
+    margin: 10px auto;
+    font-size: 1.5rem;
+}
+
+/* 區塊一排版 (Flexbox) */
+.about-section.top-content {
+    display: flex;
+    gap: 60px;
+    /*gap粉色文字框大小 */
+    align-items: center;
+    margin-bottom: 80px;
+}
+
+.image-placeholder {
+    border: 1px solid #ccc;
+    position: relative;
+}
+
+.wide-img {
+    width: 60%; /* 圖片佔大部分 */
+    height: 350px;
+}
+
+
+/* 區塊二分隔線 */
+.separator {
+    border-top: 1px solid #E8DCCF;
+    margin: 40px 0;
+}
+
+/* 區塊三排版 (大圖與下方文字) */
+.about-section.bottom-content {
+    position: relative;
+}
+
+.large-image-placeholder {
+    width: 100%;
+    height: 600px;
+    border: 1px solid #ccc;
+    margin-top: 20px;
+    position: relative;
+    /* 這裡可以放置線稿中的大叉叉 */
+}
+
+.text-box.bottom-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%; /* 文字區佔滿底部 */
+    padding: 20px 50px;
+    background-color: rgba(245, 236, 228, 0.9); /* 帶透明度的淺米色 */
+}
+
+
+/* style.css (在檔案末尾新增以下代碼) */
+
+/* === 首頁排版樣式 (index.html) === */
+
+.homepage {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* 頂部輪播區塊 */
+.hero-slider {
+    position: relative;
+    margin-bottom: 50px;
+}
+
+.slider-image-placeholder {
+    width: 100%;
+    height: 450px; /* 輪播圖高度 */
+    background-color: #f7f7f7;
+    /* border: 1px solid #ccc; */
+    /* 這裡可以放之前定義的 .placeholder-cross 樣式來畫叉叉 */
+}
+
+/* 輪播導航箭頭 */
+.slider-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: #555;
+    z-index: 10;
+}
+.prev-arrow { left: 20px; }
+.next-arrow { right: 20px; }
+
+/* 底部指示點 */
+.slider-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+}
+.dot {
+    width: 10px;
+    height: 10px;
+    background-color: #aaa;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.dot.active {
+    background-color: var(--primary-color);
+}
+
+/* 輪播容器 */
+.slideshow-container {
+    max-width: 100%;
+    position: relative;
+    margin: auto;
+    overflow: hidden;
+}
+
+/* 隱藏預設的投影片 */
+.mySlides {
+    display: none;
+}
+
+/* 左右箭頭樣式 */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    background-color: rgba(0,0,0,0.2);
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+/* 指示點容器 */
+.dot-container {
+    text-align: center;
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+}
+
+.dot {
+    cursor: pointer;
+    height: 12px;
+    width: 12px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+    background-color: #717171;
+}
+
+/* 淡入淡出動畫 */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}
+
+
+/* 公告/活動/推薦區塊 */
+.info-section {
+    margin-bottom: 50px;
+    padding: 20px 0;
+}
+
+.section-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: 1px solid #000;
+    padding: 5px 15px;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 分成四欄 */
+    gap: 20px;
+}
+
+.info-card {
+    height: auto;
+}
+
+.card-image-placeholder {
+    width: 100%;
+    height: 150px; /* 卡片圖高度 */
+    border: 1px solid #ccc;
+    background-color: #fcfcfc;
+    /* 這裡可以放之前定義的 .placeholder-cross 樣式來畫叉叉 */
+}
+
+.more-link {
+    display: block;
+    text-align: right;
+    margin-top: 10px;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+/* 區塊容器設定 */
+.info-section {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    border: 1px solid #5A4A42;
+    display: inline-block;
+    padding: 5px 15px;
+    margin-bottom: 20px;
+    color: #5A4A42;
+}
+
+/* 網格排列：四個一列 */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+/* 卡片主體 */
+.info-card {
+    position: relative; /* 關鍵：讓遮罩可以定位在上面 */
+    height: 250px;
+    border-radius: 8px;
+    overflow: hidden; /* 確保內容不超出圓角 */
+    cursor: pointer;
+}
+
+.card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 確保圖片填滿不變形 */
+    transition: transform 0.5s ease; /* 讓圖片縮放平滑 */
+}
+
+/* 文字遮罩層（預設透明度為 0） */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(90, 74, 66, 0.75); /* 半透明咖啡色底 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0; /* 預設隱藏 */
+    transition: opacity 0.3s ease;
+}
+
+/* 當滑鼠碰到圖片時發生的變化 */
+.info-card:hover .overlay {
+    opacity: 1; /* 顯示文字層 */
+}
+
+.info-card:hover .card-img {
+    transform: scale(1.1); /* 圖片微微放大，增加動感 */
+}
+
+/* 遮罩內的文字樣式 */
+.overlay-text {
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+}
+
+.overlay-text h3 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.overlay-text p {
+    font-size: 0.9rem;
+    border-bottom: 1px solid #fff;
+    display: inline-block;
+}
+
+/* 右下角的 more 連結 */
+.more-link {
+    display: block;
+    text-align: right;
+    margin-top: 10px;
+    color: #888;
+    text-decoration: none;
+    font-style: italic;
+}
+
+/* QA 頁面專屬樣式 */
+.qa-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+.faq-item {
+    border-bottom: 2px solid #E8DCCF;
+}
+
+.faq-question {
+    width: 100%;
+    text-align: left;
+    padding: 20px;
+    background-color: transparent; /* 預設透明 */
+    border: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    transition: background-color 0.3s ease; /* 修正紅字，確保這行前面有分號 */
+}
+
+/* 尚未點開時的滑入效果 */
+.faq-question:hover {
+    background-color: #fdfaf8; /* 改成極淺色，不要用深色 */
+}
+
+/* --- 關鍵修正：當項目被點開時 (Active) --- */
+
+/* 1. 讓標題區塊變色 (對應您截圖中 Q1 的位置) */
+.faq-item.active .faq-question {
+    background-color: #F5Ece4; /* 這裡設定您線稿中的淺米色 */
+    color: var(--primary-color);
+}
+
+/* 2. 讓答案區塊變色 (對應您截圖中文字描述的位置) */
+.faq-answer {
+    padding: 20px;
+    line-height: 1.8;
+    background-color: #ffffff; /* 確保內容區是白色，方便閱讀 */
+    color: #555555;
+    display: none; 
+}
+
+.faq-item.active .faq-answer {
+    display: block;
+}
+
+/* 購物車頁面樣式 */
+.cart-container {
+    max-width: 1100px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+.cart-wrapper {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.cart-items {
+    flex: 2; /* 佔據較多空間 */
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid #E8DCCF;
+    gap: 20px;
+}
+
+.item-img {
+    width: 100px;
+    height: 100px;
+    border: 1px solid #ccc;
+}
+
+.item-info {
+    flex: 1;
+}
+
+.item-info h3 {
+    margin-bottom: 5px;
+    color: var(--primary-color);
+}
+
+.item-qty {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+}
+
+.item-qty input {
+    width: 40px;
+    text-align: center;
+    border: none;
+    outline: none;
+}
+
+.qty-btn {
+    background: #f8f8f8;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.remove-btn {
+    background: none;
+    border: none;
+    color: #999;
+    cursor: pointer;
+}
+
+.remove-btn:hover {
+    color: #ff4d4d;
+}
+
+/* 結算區塊樣式 */
+.cart-summary {
+    flex: 1;
+    background-color: #FDF9F6;
+    padding: 30px;
+    border-radius: 8px;
+    position: sticky;
+    top: 100px;
+}
+
+.summary-line {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
+}
+
+.summary-line.total {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.checkout-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.continue-shopping {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    color: #888;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+/* === 會員登入頁面樣式 === */
+.login-container {
+    min-height: 80vh; /* 讓畫面至少有80%的高度，確保置中好看 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fcf9f6; /* 極淺的米色背景 */
+    padding: 40px 20px;
+}
+
+.login-card {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 450px;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(90, 74, 66, 0.1); /* 淡淡的咖啡色陰影 */
+    text-align: center;
+}
+
+.form-title {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-size: 1.8rem;
+}
+
+.form-subtitle {
+    color: #888;
+    font-size: 0.9rem;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+    font-weight: bold;
+    font-size: 0.95rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+/* 密碼眼睛圖示容器 */
+.password-wrapper {
+    position: relative;
+}
+
+.password-wrapper i {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #aaa;
+    cursor: pointer;
+}
+
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.forgot-link {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #463932; /* 更深的咖啡色 */
+}
+
+/* 分隔線 */
+.divider {
+    margin: 25px 0;
+    position: relative;
+    text-align: center;
+}
+
+.divider::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #eee;
+    z-index: 1;
+}
+
+.divider span {
+    background-color: #fff;
+    padding: 0 10px;
+    color: #999;
+    font-size: 0.85rem;
+    position: relative;
+    z-index: 2;
+}
+
+/* 社群按鈕 */
+.social-login {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.social-btn {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    color: #555;
+    transition: background-color 0.3s;
+}
+
+.social-btn:hover {
+    background-color: #f5f5f5;
+}
+
+.social-btn.line i { color: #00B900; }
+.social-btn.google i { color: #DB4437; }
+
+.register-hint {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.register-hint a {
+    color: var(--primary-color);
+    font-weight: bold;
+    text-decoration: none;
+}
